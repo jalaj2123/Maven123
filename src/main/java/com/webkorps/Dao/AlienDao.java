@@ -75,6 +75,31 @@ public class AlienDao {
 	}
 	return i;
 	}
+	
+	
+	public int Update(int aid,String aname,String tech)
+	{
+		int i=0;
+		Alien a=new Alien();
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Mvc","root","1234");
+			PreparedStatement ps=con.prepareStatement("update maven set aname=?,tech=? where aid=" +aid);
+			a.setAname(aname);
+			a.setTech(tech);
+			ps.setString(1, a.getAname());
+			ps.setString(2, a.getTech());
+			i=ps.executeUpdate();
+		
+		}
+		catch(Exception e)
+		{
+			System.out.print(e);
+		}
+		return i;
+		
+	}
 }
 	
 

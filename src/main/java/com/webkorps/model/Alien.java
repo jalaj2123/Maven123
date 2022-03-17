@@ -1,4 +1,4 @@
-package com.webkorps.model;
+ package com.webkorps.model;
 
 public class Alien {
 
